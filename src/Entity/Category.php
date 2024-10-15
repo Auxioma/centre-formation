@@ -36,15 +36,25 @@ class Category
     /**
      * @var Collection<int, self>
      */
-    #[ORM\OneToMany(targetEntity: self::class, mappedBy: 'parent')]
+    #[ORM\OneToMany(targetEntity: self::class, mappedBy: 'parent', fetch: 'EAGER')]
     private Collection $categories;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\Column]
+    private ?int $popular = 0;
+
+    /**
+     * @var Collection<int, Courses>
+     */
+    #[ORM\OneToMany(targetEntity: Courses::class, mappedBy: 'Category')]
+    private Collection $courses;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->courses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -162,6 +172,48 @@ class Category
     public function setImage(?string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getPopular(): ?int
+    {
+        return $this->popular;
+    }
+
+    public function setPopular(int $popular): static
+    {
+        $this->popular = $popular;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Courses>
+     */
+    public function getCourses(): Collection
+    {
+        return $this->courses;
+    }
+
+    public function addCourse(Courses $course): static
+    {
+        if (!$this->courses->contains($course)) {
+            $this->courses->add($course);
+            $course->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCourse(Courses $course): static
+    {
+        if ($this->courses->removeElement($course)) {
+            // set the owning side to null (unless already changed)
+            if ($course->getCategory() === $this) {
+                $course->setCategory(null);
+            }
+        }
 
         return $this;
     }

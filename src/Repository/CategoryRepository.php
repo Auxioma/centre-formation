@@ -16,28 +16,21 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-    //    /**
-    //     * @return Category[] Returns an array of Category objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Category
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    /**
+     * Get the top 6 most popular categories at level 3.
+     *
+     * @return array
+     */
+    public function findTopLevel3Categories(): array
+    {
+        return $this->createQueryBuilder('c')
+        ->leftJoin('c.parent', 'p')
+        ->leftJoin('p.parent', 'pp') // Jointure sur le grand-parent
+        ->andWhere('p IS NOT NULL')  // Niveau 2: parent existe
+        ->andWhere('pp IS NOT NULL') // Niveau 3: parent du parent existe
+        ->orderBy('pp.popular', 'DESC')
+        ->setMaxResults(6)
+        ->getQuery()
+        ->getResult();
+    }
 }
