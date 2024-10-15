@@ -19,10 +19,10 @@
         <script>
             if (localStorage.getItem("theme-color") === "dark" || (!("theme-color" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
             document.documentElement.classList.add("is_dark");
-            } 
+            }
             if (localStorage.getItem("theme-color") === "light") {
             document.documentElement.classList.remove("is_dark");
-            } 
+            }
         </script>
     </head>
     <body class="body__wrapper">
@@ -44,7 +44,7 @@
             </button>
         </div>
         <main class="main_wrapper overflow-hidden">
-            {% include '_partials/top_bar/topbar__section.html.twig' %}
+            {{ include('_partials/top_bar/topbar__section.html.twig') }}
             {{ render(controller('App\\Controller\\Navigation\\NavBarController::navBar')) }}
             {{ render(controller('App\\Controller\\Navigation\\NavBarController::navBarMobile')) }}
             <div>
@@ -52,7 +52,7 @@
                 <div class="theme__shadow__circle shadow__right"></div>
             </div>
             {% block body %}{% endblock %}
-            {% include '_partials/footer/footer.html.twig' %}
+            {{ include('_partials/footer/footer.html.twig') }}
         </main>
 
         <script src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
@@ -76,10 +76,10 @@
         <script>
             if (localStorage.getItem("theme-color") === "dark" || (!("theme-color" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
             document.getElementById("light--to-dark-button")?.classList.add("dark--mode");
-            } 
+            }
             if (localStorage.getItem("theme-color") === "light") {
             document.getElementById("light--to-dark-button")?.classList.remove("dark--mode");
-            } 
+            }
         </script>
     </body>
 </html>
