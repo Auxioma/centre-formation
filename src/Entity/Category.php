@@ -31,6 +31,7 @@ class Category
     private ?string $metaDescription = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
+    #[ORM\JoinColumn(onDelete: 'SET NULL')]
     private ?self $parent = null;
 
     /**
@@ -56,6 +57,8 @@ class Category
         $this->categories = new ArrayCollection();
         $this->courses = new ArrayCollection();
     }
+
+    // Getter and setter methods...
 
     public function getId(): ?int
     {

@@ -25,6 +25,10 @@ doctrine:
         controller_resolver:
             auto_mapping: false
 
+        dql:
+            numeric_functions:
+                RAND: DoctrineExtensions\Query\Mysql\Rand
+
 when@test:
     doctrine:
         dbal:

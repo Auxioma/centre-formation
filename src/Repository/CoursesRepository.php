@@ -16,20 +16,18 @@ class CoursesRepository extends ServiceEntityRepository
         parent::__construct($registry, Courses::class);
     }
 
-    //    /**
-    //     * @return Courses[] Returns an array of Courses objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    /**
+      * @return Courses[] Returns an array of Courses objects
+      */
+    public function Find6CoursesForMainPage(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('RAND()')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     //    public function findOneBySomeField($value): ?Courses
     //    {

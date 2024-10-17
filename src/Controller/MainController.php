@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\CategoryRepository;
+use App\Repository\CoursesRepository;
 use Doctrine\Common\Collections\Criteria;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -11,7 +12,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class MainController extends AbstractController
 {
     public function __construct(
-        private readonly CategoryRepository $categoryRepository
+        private readonly CategoryRepository $categoryRepository,
+        private readonly CoursesRepository $coursesRepository
     ){}
 
     #[Route('/', name: 'app_main', methods: ['GET'])]
@@ -46,9 +48,13 @@ class MainController extends AbstractController
         });
 
         $result = array_slice($result, 0, 6);  
+
+        // je vais prendre 6 lesson et de manière aléatoire
+        $lessons = $this->coursesRepository->Find6CoursesForMainPage();
         
         return $this->render('main/index.html.twig', [
-            'PopularCategory' => $result
+            'PopularCategory' => $result,
+            'lessons' => $lessons
         ]);
     }
 }
