@@ -216,7 +216,7 @@
 									</ul>
 								</div>
 								<div class="gridarea__heading">
-									<h3>
+									<h3 class="h-fix">
 										<a href="course-details.html">
 											{{ item.title }}
 										</a>
@@ -261,8 +261,7 @@
 								<div class="default__small__button">Cours particuliers.</div>
 							</div>
 							<div class="section__title__heading heading__underline">
-
-								<h2>apprenez à coder avec 
+								<h2>Apprenez à coder avec 
                                 <small>un expert</small> et <small>maîtrisez</small> le HTML, CSS, JavaScript, le php, nodeJS et <small>bien plus de technologie.</small>
 								</h2>
 							</div>
@@ -272,26 +271,26 @@
 				<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12" data-aos="fade-up">
 					<div class="registerarea__form">
 						<div class="registerarea__form__heading">
-							<h4>Fill Your Registration</h4>
+							<h4>Contactez-nous!</h4>
 						</div>
-						<form action="#">
-							<input class="register__input" type="text" placeholder="Your Name">
+						{{ form_start(form) }}
+							{{ form_widget(form.name) }}
 							<div class="row">
 								<div class="col-xl-6">
-									<input class="register__input" type="text" placeholder="Email Address">
+									{{ form_widget(form.email) }}
 								</div>
 								<div class="col-xl-6">
-									<input class="register__input" type="text" placeholder="Phone">
+									{{ form_widget(form.phone) }}
 								</div>
 							</div>
-							<input class="register__input" type="text" placeholder="Address">
-							<textarea class="register__input textarea" name="#" id="#" cols="30" rows="10">Comment</textarea>
+							{{ form_widget(form.subject) }}
+							{{ form_widget(form.message) }}
 							<div class="registerarea__button">
 								<a class="default__button" href="#">Sign Up
 									<i class="icofont-long-arrow-right"></i>
 								</a>
 							</div>
-						</form>
+						{{ form_end(form) }}
 					</div>
 				</div>
 			</div>
@@ -302,163 +301,7 @@
 			<img loading="lazy" class="register__3" src="img/register/register__3.png" alt="register">
 		</div>
 	</div>
-	<div class="teamarea sp_bottom_100 sp_top_50">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-12" data-aos="fade-up">
-					<div class="section__title__2 text-center teamarea__margin">
-						<div class="section__small__title">
-							<span>Expert teacher</span>
-						</div>
-						<div class="section__title__heading__2 section__title__heading__3 heading__fontsize__2">
-							<h2>Our Expert Teacher</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up">
-					<div class="single__team">
-						<div class="teamarea__img">
-							<img loading="lazy" src="img/team/team__1.png" alt="team">
-							<div class="teamarea__icon">
-								<ul>
-									<li><a href="#"><i class="icofont-facebook"></i></a></li>
-									<li><a href="#"><i class="icofont-twitter"></i></a></li>
-									<li><a href="#"><i class="icofont-instagram"></i></a></li>
-									<li><a href="#"><i class="icofont-youtube-play"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="teamarea__content">
-							<p>INTERIOR DESIGNER</p>
-							<h5>
-								<a href="#">Mirnsdo Jons</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up">
-					<div class="single__team">
-						<div class="teamarea__img">
-							<img loading="lazy" src="img/team/team__2.png" alt="team">
-							<div class="teamarea__icon">
-								<ul>
-									<li><a href="#"><i class="icofont-facebook"></i></a></li>
-									<li><a href="#"><i class="icofont-twitter"></i></a></li>
-									<li><a href="#"><i class="icofont-instagram"></i></a></li>
-									<li><a href="#"><i class="icofont-youtube-play"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="teamarea__content">
-							<p>INTERIOR DESIGNER</p>
-							<h5>
-								<a href="#">Daniel Rock</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up">
-					<div class="single__team">
-						<div class="teamarea__img">
-							<img loading="lazy" src="img/team/team__3.png" alt="team">
-							<div class="teamarea__icon">
-								<ul>
-									<li><a href="#"><i class="icofont-facebook"></i></a></li>
-									<li><a href="#"><i class="icofont-twitter"></i></a></li>
-									<li><a href="#"><i class="icofont-instagram"></i></a></li>
-									<li><a href="#"><i class="icofont-instagram"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="teamarea__content">
-							<p>INTERIOR DESIGNER</p>
-							<h5>
-								<a href="#">Sajid Mustahidul</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="testimonialarea__3">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-					<div class="section__title__2" data-aos="fade-up">
-						<div class="section__small__title">
-							<span>Education Solution</span>
-						</div>
-						<div class="section__title__heading__2 section__title__heading__3 heading__fontsize__2">
-							<h2>Client Testimonial About Our Lms Agency</h2>
-						</div>
-					</div>
-					<div class="testimonial__slider__active__3" data-aos="fade-up">
-						<div class="testimonialarea__paragraph__3 ">
-							<p class="testimonial__quote">
-								<i class="icofont-quote-left quote__left"></i>The other hand we denounce with righteou indg ation and dislike men who are so beguiled and demorali ed by the of pleasure of the moment.Dislike men who are so beguiled and
-									                                demoraliz worlds ed by the charms of pleasure of the moment. Lorem ipsum dolor sit amet, consec elit.<i class="icofont-quote-right quote__right"></i>
-							</p>
-							<div class="testimonialarea__person__3">
-								<div class="testimonial__img__3">
-									<img loading="lazy" src="img/testimonial/testi_2.png" alt="">
-								</div>
-								<div class="testimonial__name">
-									<h6>
-										<a href="#">Mirnsdo Jons</a>
-									</h6>
-									<span>Ui/Ux Designer</span>
-								</div>
-							</div>
-						</div>
-						<div class="testimonialarea__paragraph__3 ">
-							<p class="testimonial__quote">
-								<i class="icofont-quote-left quote__left"></i>The other hand we denounce with righteou indg ation and dislike men who are so beguiled and demorali ed by the of pleasure of the moment.Dislike men who are so beguiled and
-									                                demoraliz worlds ed by the charms of pleasure of the moment. Lorem ipsum dolor sit amet, piscing elit.<i class="icofont-quote-right quote__right"></i>
-							</p>
-
-							<div class="testimonialarea__person__3">
-								<div class="testimonial__img__3">
-									<img loading="lazy" src="img/testimonial/testi_2.png" alt="">
-								</div>
-								<div class="testimonial__name">
-									<h6>
-										<a href="#">Mirnsdo Jons</a>
-									</h6>
-									<span>Ui/Ux Designer</span>
-								</div>
-							</div>
-						</div>
-						<div class="testimonialarea__paragraph__3 ">
-							<p class="testimonial__quote">
-								<i class="icofont-quote-left quote__left"></i>The other hand we denounce with righteou indg ation and dislike men who are so beguiled and demorali ed by the of pleasure of the moment.Dislike men who are so beguiled and
-									                                demoraliz worlds ed by the charms of pleasure of the moment. Lorem ipsum dolor sit amet.<i class="icofont-quote-right quote__right"></i>
-							</p>
-
-							<div class="testimonialarea__person__3">
-								<div class="testimonial__img__3">
-									<img loading="lazy" src="img/testimonial/testi_2.png" alt="">
-								</div>
-								<div class="testimonial__name">
-									<h6>
-										<a href="#">Mirnsdo Jons</a>
-									</h6>
-									<span>Ui/Ux Designer</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" data-aos="fade-up">
-					<div class="testimonial__group__img" data-tilt>
-						<img loading="lazy" src="img/testimonial/testi__group__1.png" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	{#
 	<div class="blogarea__2 sp_top_100 sp_bottom_100">
 		<div class="container">
 			<div class="row">
@@ -548,4 +391,5 @@
 			</div>
 		</div>
 	</div>
+	#}
 {% endblock %}

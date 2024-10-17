@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
-use App\Repository\CategoryRepository;
+use App\Entity\Form\Contact;
+use App\Form\ContactFormType;
 use App\Repository\CoursesRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\Criteria;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +20,7 @@ class MainController extends AbstractController
     ){}
 
     #[Route('/', name: 'app_main', methods: ['GET'])]
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $categories = $this->categoryRepository->findAll();
 
@@ -51,10 +54,14 @@ class MainController extends AbstractController
 
         // je vais prendre 6 lesson et de manière aléatoire
         $lessons = $this->coursesRepository->Find6CoursesForMainPage();
+
+        $contact = new Contact();
+        $form = $this->createForm(ContactFormType::class, $contact);
         
         return $this->render('main/index.html.twig', [
             'PopularCategory' => $result,
-            'lessons' => $lessons
+            'lessons' => $lessons,
+            'form' => $form->createView()
         ]);
     }
 }

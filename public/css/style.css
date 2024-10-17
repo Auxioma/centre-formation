@@ -1,65 +1,3 @@
-/*********************************************************************************
-
-	Template Name: Edurock - Education LMS Template
-    Author: Techboot
-    Support: techbootmail@gmail.com
-    Description: Edurock -  Education, online course, bootstrap 5.0 LMS Template.
-    Version: 1.0.0
-
-**********************************************************************************/
-/**************************************************************
-
-	Start Style sheet Indexing
-	|
-	|___ Default Styles
-	|	|
-	|	|___ Variables
-	|	|___ Mixins
-	|	|___ Reset
-	|	|___ Typography
-	|	|___ Extend
-	|	|___ Animations
-	|	|___ Short Code
-	|	|___ Spacing
-	|
-	|
-	|___Header Styles
-	|	|___ header
-	|	|___ main_menu
-    |	|___ mobile_menu
-	|
-	|
-	|___Section Styles
-	|	|___ Hero Banner 
-	|	|___ Education 
-	|	|___ Training
-	|	|___ About
-	|	|___ Popular
-	|	|___ Grid
-	|	|___ Event
-	|	|___ Register
-	|	|___ testimonial
-	|	|___ Counter
-	|	|___ Team
-	|
-	|___Page Styles
-	|	|___ Instructor 
-	|	|___ Blog 
-	|	|___ Course 
-	|	|___ Contact 
-	|	|___ Error 
-	|	|___ Breadcrumb 
-	|
-	|___Footer Styles
-	|	|___ Footer 
-	|	|___ Copyright
-	|
-	|___Light/Dark Styles
-	|	|___ Light/Dark 
-	|
-	|___ End Style Sheet Indexing
-
-***************************************************************/
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 :root {
   --bodyColor: #222222;
@@ -12753,4 +12691,11 @@ Dark Mode
 }
 .is_dark .dashboard__table table thead {
   background: var(--whiteColor);
-}/*# sourceMappingURL=style.css.map */
+}
+.h-fix {
+  height: 55px;
+  overflow: hidden;
+}
+
+
+/*# sourceMappingURL=style.css.map */
