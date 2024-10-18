@@ -5,9 +5,10 @@
                 <div class="col-xl-2 col-lg-2 col-md-6">
                     <div class="headerarea__left">
                         <div class="headerarea__left__logo">
-                            <a href="index.html"><img loading="lazy" src="{{ asset('img/logo/logo_1.png') }}" alt="Développeur Web et Web Mobile"></a>
+                            <a href="{{ path('app_main') }}">
+                                <img loading="lazy" src="{{ asset('img/logo/logo_1.png') }}" alt="Développeur Web et Web Mobile">
+                            </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-7 main_menu_wrap">
@@ -15,42 +16,38 @@
                         <nav>
                             <ul>
                                 <li class="mega__menu position-static">
-                                    <a class="headerarea__has__dropdown" href="">Accueil</a>
+                                    <a class="headerarea__has__dropdown" href="{{ path('app_main') }}">Accueil</a>
                                 </li>
                                 {% for categorie in categories %}
-                                <li class="mega__menu position-static">
-                                    <a class="headerarea__has__dropdown" href="">{{ categorie.name }}<i class="icofont-rounded-down"></i>
-                                    </a>
-                                    <div class="headerarea__submenu mega__menu__wrapper">
-
-                                        <div class="row">
-
-                                            {% for subcategorie in categorie.categories %}
-
-                                            <div class="col-3 mega__menu__single__wrap">
-                                                <h4 class="mega__menu__title">
-                                                    <a href="#">{{ subcategorie.name }}</a>
-                                                </h4>
-                                                <ul class="mega__menu__item">
-                                                    {% for cours in subcategorie.categories %}
-
-                                                    <li>
-                                                        <a href="">{{ cours.name }}</a>
-                                                    </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-
-                                            {% endfor %}
-
-                                            <div class="col-12 mega__menu__single__wrap sp_top_30">
-                                                <div class="mega__menu__img">
-                                                    <a href="#"><img loading="lazy" src="/img/mega/mega_menu_2.png" alt="Mega Menu"></a>
+                                    <li class="mega__menu position-static">
+                                        <a class="headerarea__has__dropdown" href="{{ path('app_courses_n1', {n1: categorie.slug}) }}">{{ categorie.name }}<i class="icofont-rounded-down"></i>
+                                        </a>
+                                        <div class="headerarea__submenu mega__menu__wrapper">
+                                            <div class="row">
+                                                {% for subcategorie in categorie.categories %}
+                                                    <div class="col-3 mega__menu__single__wrap">
+                                                        <h4 class="mega__menu__title">
+                                                            <a href="{{ path('app_courses_n2', {n1: categorie.slug, n2:subcategorie.slug}) }}">{{ subcategorie.name }}</a>
+                                                        </h4>
+                                                        <ul class="mega__menu__item">
+                                                            {% for cours in subcategorie.categories %}
+                                                                <li>
+                                                                    <a href="{{ path('app_courses_n3', {n1: categorie.slug, n2:subcategorie.slug, n3:cours.slug}) }}">{{ cours.name }}</a>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+                                                {% endfor %}
+                                                <div class="col-12 mega__menu__single__wrap sp_top_30">
+                                                    <div class="mega__menu__img">
+                                                        <a href="#">
+                                                            <img loading="lazy" src="/img/mega/mega_menu_2.png" alt="Mega Menu">
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
                                 {% endfor %}
                                 <li class="mega__menu position-static">
                                     <a class="headerarea__has__dropdown" href="index.html">Contact</a>
@@ -62,25 +59,23 @@
                 <div class="col-xl-1 col-lg-3 col-md-6">
                     <div class="headerarea__right">
                         <div class="headerarea__login">
-                            <a href="login.html">
+                            <a href="{{ path('app_login') }}">
                                 <i class="icofont-user-alt-5"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
         <div class="container-fluid mob_menu_wrapper">
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="mobile-logo">
-                        <a class="logo__dark" href="#"><img loading="lazy" src="img/logo/logo_1.png" alt="logo"></a>
+                        <a class="logo__dark" href="#">
+                            <img loading="lazy" src="img/logo/logo_1.png" alt="logo">
+                        </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
