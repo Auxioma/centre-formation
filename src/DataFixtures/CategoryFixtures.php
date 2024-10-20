@@ -12,8 +12,8 @@ class CategoryFixtures extends Fixture
     {
         for ( $i = 0; $i < 2; $i++ ) {
             $n1 = new Category();
-            $n1->setName('N   ' . $i)
-                ->setSlug('category-n1-' . $i)
+            $n1->setName('Level - ' . $i)
+                ->setSlug('Level-' . $i)
                 ->setOnline(true)
                 ->setMetaTitle('Meta title ' . $i)
                 ->setMetaDescription('Meta description ' . $i)
@@ -23,8 +23,8 @@ class CategoryFixtures extends Fixture
 
             for ( $j =0 ;$j < 4; $j++ ) {
                 $n2 = new Category();
-                $n2->setName('N  ' . $j)
-                    ->setSlug('category-n2-' . $j)
+                $n2->setName('Level - ' . $i .' - '. $j)
+                    ->setSlug('Level-'.$i.'-'. $j)
                     ->setOnline(true)
                     ->setMetaTitle('Meta title ' . $j)
                     ->setMetaDescription('Meta description ' . $j)
@@ -35,8 +35,8 @@ class CategoryFixtures extends Fixture
 
                 for ( $k =0 ;$k < 4; $k++ ) {
                     $n3 = new Category();
-                    $n3->setName('N  ' . $k)
-                        ->setSlug('category-n3-' . $k)
+                    $n3->setName('Level - ' . $i .' - '. $j .' - '. $k)
+                        ->setSlug('Level-' . $i .'-'. $j .'-'. $k)
                         ->setOnline(true)
                         ->setMetaTitle('Meta title ' . $k)
                         ->setMetaDescription('Meta description ' . $k)

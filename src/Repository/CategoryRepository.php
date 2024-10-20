@@ -33,4 +33,38 @@ class CategoryRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
+
+    /**
+     * find the lession with the given level
+     * n1/n2/n3 
+     * n1/n2
+     * n1 
+     */
+    public function findByLevel(string $n1, ?string $n2 = null, ?string $n3 = null): array
+    {
+        $db = $this->createQueryBuilder('c');
+
+        // Si n1, n2 et n3 sont définis et non null
+        if ($n1 !== null && $n2 !== null && $n3 !== null) {
+            $db->andWhere('c.Slug = :n3')
+                ->setParameter('n3', $n3);
+            ;
+        } 
+          
+        // Si n1 et n2 sont définis et non null
+        elseif ($n1 !== null && $n2 !== null) {
+            $db->andWhere('c.Slug = :n2')
+                ->setParameter('n2', $n2)
+            ;  
+        }
+        // Si seulement n1 est défini et non null
+        elseif ($n1 !== null) {
+            $db->andWhere('c.Slug = :n1')
+                ->setParameter('n1', $n1)
+            ;  
+        }
+        
+        return $db->getQuery()->getResult();
+    }
+    
 }

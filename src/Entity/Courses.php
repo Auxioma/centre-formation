@@ -34,6 +34,12 @@ class Courses
     #[ORM\OneToMany(targetEntity: Lessons::class, mappedBy: 'Courses')]
     private Collection $lessons;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $picture = null;
+
     public function __construct()
     {
         $this->lessons = new ArrayCollection();
@@ -118,6 +124,30 @@ class Courses
                 $lesson->setCourses(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): static
+    {
+        $this->picture = $picture;
 
         return $this;
     }

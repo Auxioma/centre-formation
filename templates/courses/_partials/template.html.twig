@@ -1,0 +1,45 @@
+{# templates/bundles/KnpPaginatorBundle/Pagination/custom_pagination.html.twig #}
+
+{% if pageCount > 1 %}
+    <div class="main__pagination__wrapper" data-aos="fade-up">
+        <ul class="main__page__pagination">
+            {% if first is defined and current != first %}
+                <li>
+                    <a href="{{ path(route, knp_pagination_query(query, first)) }}">
+                        <i class="icofont-double-left"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a class="disable" href="#">
+                        <i class="icofont-double-left"></i>
+                    </a>
+                </li>
+            {% endif %}
+
+            {% for page in pagesInRange %}
+                <li>
+                    {% if page != current %}
+                        <a href="{{ path(route, knp_pagination_query(query, page)) }}">{{ page }}</a>
+                    {% else %}
+                        <a class="active" href="#">{{ page }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+
+            {% if last is defined and current != last %}
+                <li>
+                    <a href="{{ path(route, knp_pagination_query(query, last)) }}">
+                        <i class="icofont-double-right"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a class="disable" href="#">
+                        <i class="icofont-double-right"></i>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}

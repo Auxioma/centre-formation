@@ -13,12 +13,14 @@ class CoursesFixtures extends Fixture implements DependentFixtureInterface
     {
         $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 500; $i++) {
             $course = new Courses();
             $course->setTitle($faker->sentence(3));
             $course->setDescription($faker->text(200));
             $course->setCategory($this->getReference('category_' . rand(0, 3)));
             $course->setUser($this->getReference('user_' . rand(0, 4)));
+            $course->setSlug($faker->slug);
+            $course->setPicture('grid_1.png');
             $manager->persist($course);
         }
 
