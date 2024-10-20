@@ -27,12 +27,12 @@
                                                 {% for subcategorie in categorie.categories %}
                                                     <div class="col-3 mega__menu__single__wrap">
                                                         <h4 class="mega__menu__title">
-                                                            <a href="{{ path('app_courses_n2', {n1: categorie.slug, n2:subcategorie.slug}) }}">{{ subcategorie.name }}</a>
+                                                            <a href="{{ path('app_courses_n2', {n1: categorie.slug, n2: subcategorie.slug}) }}">{{ subcategorie.name }}</a>
                                                         </h4>
                                                         <ul class="mega__menu__item">
                                                             {% for cours in subcategorie.categories %}
                                                                 <li>
-                                                                    <a href="{{ path('app_courses_n3', {n1: categorie.slug, n2:subcategorie.slug, n3:cours.slug}) }}">{{ cours.name }}</a>
+                                                                    <a href="{{ path('app_courses_n3', {n1: categorie.slug, n2: subcategorie.slug, n3: cours.slug}) }}">{{ cours.name }}</a>
                                                                 </li>
                                                             {% endfor %}
                                                         </ul>
