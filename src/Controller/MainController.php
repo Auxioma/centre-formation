@@ -4,20 +4,21 @@ namespace App\Controller;
 
 use App\Entity\Form\Contact;
 use App\Form\ContactFormType;
-use App\Repository\CoursesRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\CoursesRepository;
 use Doctrine\Common\Collections\Criteria;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
     public function __construct(
         private readonly CategoryRepository $categoryRepository,
-        private readonly CoursesRepository $coursesRepository
-    ){}
+        private readonly CoursesRepository $coursesRepository,
+    ) {
+    }
 
     #[Route('/', name: 'app_main', methods: ['GET'])]
     public function index(Request $request): Response
@@ -32,7 +33,7 @@ class MainController extends AbstractController
                         ->orderBy(['popular' => Criteria::DESC])
                         ->setMaxResults(6)
                 );
-        
+
                 foreach ($productCategories as $p) {
                     $result[] = [
                         'name' => $p->getName(),
@@ -40,28 +41,28 @@ class MainController extends AbstractController
                         'n1' => $category->getSlug(),
                         'n2' => $product->getSlug(),
                         'n3' => $p->getSlug(),
-                        'popular' => $p->getPopular()
+                        'popular' => $p->getPopular(),
                     ];
                 }
             }
         }
-        
-        usort($result, function($a, $b) {
+
+        usort($result, function ($a, $b) {
             return $b['popular'] <=> $a['popular'];
         });
 
-        $result = array_slice($result, 0, 6);  
+        $result = array_slice($result, 0, 6);
 
         // je vais prendre 6 lesson et de manière aléatoire
         $lessons = $this->coursesRepository->Find6CoursesForMainPage();
 
         $contact = new Contact();
         $form = $this->createForm(ContactFormType::class, $contact);
-        
+
         return $this->render('main/index.html.twig', [
             'PopularCategory' => $result,
             'lessons' => $lessons,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 }

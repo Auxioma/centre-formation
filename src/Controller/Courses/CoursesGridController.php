@@ -4,16 +4,17 @@ namespace App\Controller\Courses;
 
 use App\Repository\CategoryRepository;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CoursesGridController extends AbstractController
 {
     public function __construct(
         private CategoryRepository $categoryRepository,
-    ){}
+    ) {
+    }
 
     #[Route('/{n1}', name: 'app_courses_n1')]
     #[Route('/{n1}/{n2}', name: 'app_courses_n2')]
@@ -25,7 +26,7 @@ class CoursesGridController extends AbstractController
 
         $ShowCourses = [];
         // je vvais faire l'optimisation par la suite, je vais faire de l'affichage des cours par niveau
-        if ('app_courses_n3' === $request->attributes->get('_route')) {    
+        if ('app_courses_n3' === $request->attributes->get('_route')) {
             foreach ($fincourses as $course) {
                 $i = $course->getCourses();
                 foreach ($i as $item) {
@@ -61,18 +62,17 @@ class CoursesGridController extends AbstractController
                         ];
                     }
                 }
-                
             }
         }
 
-        if ('app_courses_n1' === $request->attributes->get('_route')) {  
+        if ('app_courses_n1' === $request->attributes->get('_route')) {
             foreach ($fincourses as $levelN2) {
                 $level = $levelN2->getCategories();
-                 
-                foreach ( $level as $levelN3 ) {
+
+                foreach ($level as $levelN3) {
                     $ln3 = $levelN3->getCategories();
-                    $n2 = $levelN3->getSlug(); 
-                    foreach ( $ln3 as $course ) {
+                    $n2 = $levelN3->getSlug();
+                    foreach ($ln3 as $course) {
                         $i = $course->getCourses();
                         foreach ($i as $item) {
                             $ShowCourses[] = [
@@ -85,7 +85,7 @@ class CoursesGridController extends AbstractController
                                 'n3' => $item->getCategory()->getSlug(),
                                 'n4' => $item->getSlug(),
                             ];
-                        }  
+                        }
                     }
                 }
             }

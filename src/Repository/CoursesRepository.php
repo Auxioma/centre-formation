@@ -17,8 +17,8 @@ class CoursesRepository extends ServiceEntityRepository
     }
 
     /**
-      * @return Courses[] Returns an array of Courses objects
-      */
+     * @return Courses[] Returns an array of Courses objects
+     */
     public function Find6CoursesForMainPage(): array
     {
         return $this->createQueryBuilder('c')

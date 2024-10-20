@@ -7,6 +7,7 @@
 /.env
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
+/public/.maintenance
 /var/
 /vendor/
 /.idea/
@@ -30,3 +31,8 @@
 ###> vincentlanglet/twig-cs-fixer ###
 /.twig-cs-fixer.cache
 ###< vincentlanglet/twig-cs-fixer ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###

@@ -33,17 +33,17 @@ class UserFixtures extends Fixture
         $manager->persist($adminUser);
 
         // Create 9 additional users with ROLE_AUTHOR
-        for ($i = 0; $i <= 9; $i++) {
+        for ($i = 0; $i <= 9; ++$i) {
             $user = new User();
             $user->setEmail($faker->email);
             $user->setFirstName($faker->firstName);
             $user->setLastName($faker->lastName);
             $user->setUserName($faker->userName);
             $user->setRoles(['ROLE_AUTHOR']);
-            $hashedPassword = $this->passwordHasher->hashPassword($user, 'userpassword' . $i);
+            $hashedPassword = $this->passwordHasher->hashPassword($user, 'userpassword'.$i);
             $user->setPassword($hashedPassword);
             $user->setVerified(true);
-            $this->addReference('user_' . $i, $user);
+            $this->addReference('user_'.$i, $user);
             $manager->persist($user);
         }
 
