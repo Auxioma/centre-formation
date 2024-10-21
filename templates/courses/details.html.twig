@@ -101,10 +101,13 @@
                                                 </h2>
                                                 <div id="{{ item.slug }}" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
+
+                                                        {% for scc in item.lessons %}
+
                                                         <div class="scc__wrap">
                                                             <div class="scc__info">
                                                                 <h5>
-                                                                Lorem ipsum dolor sit amet.aaaaaaaaaa
+                                                                {{ scc.title }}
                                                                 </h5>
                                                             </div>
                                                             <div class="scc__meta">
@@ -112,6 +115,10 @@
                                                                 <a href="lesson.html"><span>Voir le cour</span></a>
                                                             </div>
                                                         </div>
+
+                                                        {% endfor %}
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -270,34 +277,15 @@
                                                 <div class="tab__instructor__inner">
                                                     <div class="blogsidebar__name__2">
                                                         <h5>
-                                                            <a href="#">  Rosalina D. Willaim</a>
+                                                            <a href="#">{{ courses.user.userName }}</a>
 
                                                         </h5>
-                                                        <p>Blogger/Photographer</p>
+                                                        <p>Agence web et Formateur DWWM & CDA</p>
                                                     </div>
                                                     <div class="blog__sidebar__text__2">
                                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
                                                     </div>
-                                                    <div class="blogsidbar__icon__2">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="#"><i class="icofont-facebook"></i></a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="#"><i class="icofont-youtube-play"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#"><i class="icofont-instagram"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#"><i class="icofont-twitter"></i></a>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -334,14 +322,19 @@
                                 </div>
                                 <div class="event__price__wraper">
                                     <div class="event__price">
-                                        $32.00 <del>/ $67.00</del>
+                                        Free <del>/ $67.00</del>
                                     </div>
                                 </div>
                                 <div class="course__summery__lists">
                                     <ul>
                                         <li>
                                             <div class="course__summery__item">
-                                                <span class="sb_label">Instructor:</span><span class="sb_content"><a href="instructor-details.html">D. Willaim</a></span>
+                                                <span class="sb_label">Tuteur:</span>
+                                                <span class="sb_content">
+                                                <a href="instructor-details.html">
+                                                    {{ courses.user.userName }}
+                                                </a>
+                                                </span>
                                             </div>
                                         </li>
                                         <li>
@@ -356,17 +349,12 @@
                                         </li>
                                         <li>
                                             <div class="course__summery__item">
-                                                <span class="sb_label">Skill Level</span><span class="sb_content">Basic</span>
+                                                <span class="sb_label">Langue</span><span class="sb_content">Francais</span>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="course__summery__item">
-                                                <span class="sb_label">Language</span><span class="sb_content">Spanish</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="course__summery__item">
-                                                <span class="sb_label">Quiz</span><span class="sb_content">Yes</span>
+                                                <span class="sb_label">Quiz</span><span class="sb_content">Oui</span>
                                             </div>
                                         </li>
                                     </ul>
