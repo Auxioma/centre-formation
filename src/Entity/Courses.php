@@ -40,6 +40,9 @@ class Courses
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $grandeDescription = null;
+
     public function __construct()
     {
         $this->lessons = new ArrayCollection();
@@ -148,6 +151,18 @@ class Courses
     public function setPicture(string $picture): static
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getGrandeDescription(): ?string
+    {
+        return $this->grandeDescription;
+    }
+
+    public function setGrandeDescription(string $grandeDescription): static
+    {
+        $this->grandeDescription = $grandeDescription;
 
         return $this;
     }
