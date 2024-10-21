@@ -19,20 +19,24 @@ class MaintenanceListener
 
     public function onKernelRequest(RequestEvent $event)
     {
-        // On vérifie si le fichier .maintenance n'existe pas
+        $request = $event->getRequest();
+        
+        if ($request->getClientIp() === '127.0.0.1' || $request->getClientIp() === '::1') {
+            return;
+        }
+
+        
         if (!file_exists($this->maintenance)) {
             return;
         }
 
-        // Le fichier existe
-        // On définit la réponse
         $event->setResponse(
             new Response(
                 $this->twig->render('maintenance/maintenance.html.twig'),
                 Response::HTTP_SERVICE_UNAVAILABLE
             )
         );
-        // On stoppe le traitement des évènements
+
         $event->stopPropagation();
     }
 }
