@@ -21,6 +21,7 @@ class CoursesFixtures extends Fixture implements DependentFixtureInterface
             $course->setUser($this->getReference('user_'.rand(0, 4)));
             $course->setSlug($faker->slug);
             $course->setPicture('grid_1.png');
+            $this->addReference('course_'.$i, $course);
             $manager->persist($course);
         }
 

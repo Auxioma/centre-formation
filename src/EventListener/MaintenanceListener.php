@@ -20,12 +20,11 @@ class MaintenanceListener
     public function onKernelRequest(RequestEvent $event)
     {
         $request = $event->getRequest();
-        
-        if ($request->getClientIp() === '127.0.0.1' || $request->getClientIp() === '::1') {
+
+        if ('127.0.0.1' === $request->getClientIp() || '::1' === $request->getClientIp() || '82.125.21.108' === $request->getClientIp()) {
             return;
         }
 
-        
         if (!file_exists($this->maintenance)) {
             return;
         }

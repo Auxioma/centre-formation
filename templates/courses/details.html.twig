@@ -36,12 +36,11 @@
 
                         <div class="blog__details__content__wraper">
                             <div class="course__details__heading" data-aos="fade-up">
-                                <h3>Making Music with Other People</h3>
+                                <h3>{{ courses.title }}</h3>
                             </div>
                             <div class="course__button__wraper" data-aos="fade-up">
                                 <div class="course__button">
-                                    <a href="#">Featured</a>
-                                    <a class="course__2" href="#">Ux Design</a>
+                                    <a class="course__2" href="#">{{ courses.Category.name }}</a>
                                 </div>
                             </div>
 
@@ -66,9 +65,7 @@
                                 </ul>
                             </div>
                             <div class="course__details__paragraph" data-aos="fade-up">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate vestibulum rhoncus, dolor eget viverra pretium, dolor tellus aliquet nunc, vitae ultricies erat elit eu lacus. Vestibulum non justo consectetur,
-                                    cursus ante, tincidunt sapien. Nulla quis diam sit amet turpis interd enim. Vivamus faucibus ex sed nibh egestas elementum. Mauris et bibendum dui. Aenean consequat pulvinar luctus. Suspendisse consectetur tristique
-                                </p>
+                                <p>{{ courses.description }}</p>
                             </div>
                             <div class="course__details__tab__wrapper" data-aos="fade-up">
                                 <div class="row">
@@ -207,7 +204,6 @@
                                     </div>
 
                                     <div class="tab-pane fade" id="projects__three" role="tabpanel" aria-labelledby="projects__three">
-
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="review__box">
