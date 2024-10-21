@@ -21,7 +21,7 @@ class MaintenanceListener
     {
         $request = $event->getRequest();
 
-        if ('127.0.0.1' === $request->getClientIp() || '::1' === $request->getClientIp() || '82.125.21.108' === $request->getClientIp()) {
+        if ('127.0.0.1' === $request->getClientIp() || '92.184.110.81' === $request->getClientIp() || '82.125.21.108' === $request->getClientIp()) {
             return;
         }
 
