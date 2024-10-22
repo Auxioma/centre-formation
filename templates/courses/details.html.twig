@@ -2,7 +2,7 @@
 
 {% block title %}Hello CoursesController!{% endblock %}
 
-{% block body %}
+{% block body %} {{ dump(app) }}
         <div class="breadcrumbarea">
             <div class="container">
                 <div class="row">
@@ -110,15 +110,12 @@
                                                                 {{ scc.title }}
                                                                 </h5>
                                                             </div>
+                                                           
                                                             <div class="scc__meta">
-                                                                <!-- <span class="time"> <i class="icofont-clock-time"></i> 22 minutes</span> -->
-                                                                <a href="lesson.html"><span>Voir le cour</span></a>
+                                                                <a href="{{ app.request.pathInfo }}/{{ scc.slug }}"><span>Voir le cours</span></a>
                                                             </div>
                                                         </div>
-
                                                         {% endfor %}
-
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -132,9 +129,7 @@
                                         <div class="experence__description">
                                             <p class="description__1">{{ courses.grandeDescription }}</p>
                                         </div>
-
                                     </div>
-
                                     <div class="tab-pane fade" id="projects__three" role="tabpanel" aria-labelledby="projects__three">
                                         <div class="row">
                                             <div class="col-lg-4">
