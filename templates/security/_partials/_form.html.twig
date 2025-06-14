@@ -1,0 +1,29 @@
+<form action="#">
+	{% if error %}
+		<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+	{% endif %}
+
+	<div class="login__form">
+		<label class="form__label">Username or email</label>
+		<input type="email" value="{{ last_username }}" name="_username" class="common__login__input" autocomplete="email" placeholder="Your username or email" required autofocus>
+	</div>
+	<div class="login__form">
+		<label class="form__label">Password</label>
+		<input type="password" name="_password" class="common__login__input" autocomplete="current-password" placeholder="Password" required>
+		        <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+	</div>
+	<div class="login__form d-flex justify-content-between flex-wrap gap-2">
+		<div class="form__check">
+			 <input type="checkbox" name="_remember_me" id="_remember_me">
+			<label for="_remember_me">Remember me</label>
+		</div>
+		<div class="text-end login__form__link">
+			<a href="#">Forgot your password?</a>
+		</div>
+	</div>
+	<div class="login__button">
+		   <button class="default__button" type="submit">
+            Sign in
+        </button>
+	</div>
+</form>
