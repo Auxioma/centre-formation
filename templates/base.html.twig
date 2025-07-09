@@ -34,7 +34,7 @@
 
         <main class="main_wrapper overflow-hidden">
             {% include '_partials/_topbararea.html.twig' %}
-            {% include '_partials/_header.html.twig' %}
+            {{ render(controller('App\\Controller\\Menu\\MenuController::index')) }}
 		    {% block body %}{% endblock %}
             {% include '_partials/_footer.html.twig' %}
         </main>
